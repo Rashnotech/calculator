@@ -1,2 +1,1 @@
-# calculator
-Cloning a windows calculator app
+# Building App using JS
