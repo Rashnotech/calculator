@@ -1,0 +1,32 @@
+body{
+    margin: 0 auto;
+    padding: 0;
+    font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+* {
+    box-sizing: border-box;
+}
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+}
+.calculator .main_screen {
+
+}
+.calculator .small_screen {
+    font-weight: 900;
+    font-size: xx-large;
+    text-align: right; 
+}
+.stack > div {
+    display: flex;
+    flex-direction: row;
+    row-gap: 2em;
+    width: 100%;
+}
+
+
+

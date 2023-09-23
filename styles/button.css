@@ -1,0 +1,34 @@
+.calculator {
+    width: 70%;
+    display: flex;
+    padding: 0.5rem;
+    flex-direction: column;  
+}
+.calculator .screen {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.calculator .mem_keys {
+    display: flex;
+    width: 50%;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+}
+.calculator .keypad {
+    display: flex;
+    flex-direction: row;
+}
+.calculator .buttons {
+    width: 80%;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+}
+.calculator .operator {
+    display: grid;
+    grid-gap: 10px;
+    width: 20%;
+    grid-column: 1;
+}
