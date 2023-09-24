@@ -47,6 +47,12 @@ body{
     padding: 0;
     margin: 0;
 }
+.stack > div h4:hover {
+    color: #3333336c;
+    transition-duration: 400ms;
+    transition-property: all;
+    cursor: pointer;
+}
 .calculator .cal_modes{
     display: flex;
     height: 5%;
