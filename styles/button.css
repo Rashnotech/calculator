@@ -29,29 +29,11 @@
 .cal_modes button:hover {
     background-color: #dddddd8a;
 }
-.cal_modes button {
-    border: none;
-    background-color: inherit;
-    padding: .5rem;
-    border-radius: 4px;
-    font-size: larger;
-    text-align: center;
-}
 .calculator .buttons {
     width: 100%;
     display: grid;
     grid-gap: .2rem;
     grid-template-columns: repeat(4, 1fr);
-}
-.calculator .buttons > :nth-child(n + 1):nth-child(-n + 8) {
-    background-color: #ffffff4c;
-}
-.calculator .buttons > :nth-child(4n + 4) {
-    background-color: #ffffff4c;
-}
-.calculator .buttons > :last-child {
-    background-color: #0E4C92;
-    color: #fff;
 }
 .buttons button {
     background-color: #fff;
@@ -63,4 +45,22 @@
     text-align: center;
     font-weight: 500;
     box-shadow: inset 0px 0px 2px #3333334f;
+}
+.calculator .buttons > :nth-child(n + 1):nth-child(-n + 8) {
+    background-color: #FBFCFA;
+}
+.calculator .buttons > :nth-child(4n + 4) {
+    background-color: #FBFCFA;
+}
+.calculator .buttons > :last-child {
+    background-color: #0E4C92;
+    color: #fff;
+}
+.buttons button:hover {
+    background-color: #FBFBF9;
+}
+.cal_modes button {
+    border: none;
+    background-color: inherit;
+    border-radius: 2px;
 }
