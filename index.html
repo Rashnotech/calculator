@@ -11,17 +11,21 @@
 	<body>
 		<div class="container">
 			<main class="calculator">
-				<div class="cal_modes">Standard</div>
+				<div class="cal_modes">
+					<button><iconify-icon icon="jam:align-justify"></iconify-icon></button>
+					<h3>Standard</h3> 
+					<button><iconify-icon icon="heroicons:arrow-top-right-on-square-20-solid"></iconify-icon></button>
+				</div>
 				<div class="screen">
 					<div class="small_screen">
 						8
 					</div>
 					<div class="main_screen">
-						0
+						8
 					</div>
 				</div>
 				<div>
-					<div class="f_keys">
+					<div class="mem_keys">
 						<button>MC</button>
 						<button>MR</button>
 						<button>M+</button>
@@ -33,28 +37,26 @@
 							<button>%</button>
 							<button>CE</button>
 							<button>C</button>
+							<button><iconify-icon icon="uil:backspace"></iconify-icon></button>
 							<button>1/x</button>
 							<button>x^2</button>
-							<button>[x</button>
+							<button><iconify-icon icon="fa6-solid:square-root-variable"></iconify-icon></button>
+							<button>/</button>
 							<button>7</button>
 							<button>8</button>
 							<button>9</button>
+							<button>x</button>
 							<button>4</button>
 							<button>5</button>
 							<button>6</button>
+							<button>-</button>
 							<button>1</button>
 							<button>2</button>
 							<button>3</button>
+							<button>+</button>
 							<button>+/-</button>
 							<button>0</button>
 							<button>.</button>
-						</div>
-						<div class="operator">
-							<button>&lt;</button>
-							<button>/</button>
-							<button>x</button>
-							<button>-</button>
-							<button>+</button>
 							<button>=</button>
 						</div>
 					</section>
@@ -62,11 +64,12 @@
 			</main>
 			<main class="stack">
 				<div>
-					<h3>History</h3>
-					<h3>Memory</h3>
+					<h4>History</h4>
+					<h4>Memory</h4>
 				</div>
 			</main>
 		</div>
+		<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 		<script src="scripts/"></script>
 	</body>
 </html>
