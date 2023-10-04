@@ -9,14 +9,49 @@
 		<title>Calculator</title>
 	</head>
 	<body>
+		<nav class="side_nav">
+			<div class="gap"></div>
+			<section class="menu">
+				<h4>Calculator</h4>
+				<ul>
+					<li class="icon"><span><iconify-icon width="22" height="22" icon="fluent:calculator-20-regular"></iconify-icon></span>Standard</li>
+					<li class="icon"><span><iconify-icon width="22" height="22" icon="ion:flask-outline"></iconify-icon></span>Scientific</li>
+					<li class="icon"><span><iconify-icon width="22" height="22" icon="iconoir:graph-down"></iconify-icon></span>Graphing</li>
+					<li class="icon"><span><iconify-icon width="22" height="22" icon="solar:code-outline"></iconify-icon></span>Programmer</li>
+					<li class="icon"><span><iconify-icon width="22" height="22" icon="solar:calendar-broken"></iconify-icon></span>Date calculation</li>
+
+				</ul>
+				<h4>Converter</h4>
+				<ul>
+					<li>Currency</li>
+					<li>Volume</li>
+					<li>Length</li>
+					<li>Weight and mass</li>
+					<li>Temperature</li>
+					<li>Energy</li>
+					<li>Area</li>
+					<li>Speed</li>
+					<li>Time</li>
+					<li>Power</li>
+					<li>Data</li>
+					<li>Pressure</li>
+					<li>Angle</li>
+				</ul>
+			</section>
+			<div>
+				<ul>
+					<li>Setting</li>
+				</ul>
+			</div>
+		</nav>
 		<div class="container">
 			<main class="calculator">
 				<div class="cal_modes">
-					<button><iconify-icon icon="jam:align-justify" width="25" height="25"></iconify-icon></button>
+					<button class="toggle"><iconify-icon icon="fluent:text-align-justify-20-regular" width="25" height="25"></iconify-icon></button>
 					<h3>Standard</h3> 
-					<button><iconify-icon icon="heroicons:arrow-top-right-on-square-20-solid" width="20" height="20"></iconify-icon></button>
+					<button><iconify-icon width="20" height="20" icon="heroicons:arrow-top-right-on-square-20-solid"></iconify-icon></button>
 					<div class="history">
-						<button><iconify-icon icon="ic:round-history" width="20" height="20"></iconify-icon></button>
+						<button><iconify-icon width="20" height="20" icon="ic:round-history"></iconify-icon></button>
 					</div>						
 				</div>
 				<div class="screen">
@@ -40,10 +75,10 @@
 							<button>%</button>
 							<button>CE</button>
 							<button>C</button>
-							<button><iconify-icon icon="uil:backspace"></iconify-icon></button>
+							<button><iconify-icon width="22" height="22" icon="uil:backspace"></iconify-icon></button>
 							<button>1/x</button>
 							<button>x^2</button>
-							<button><iconify-icon icon="fa6-solid:square-root-variable"></iconify-icon></button>
+							<button><iconify-icon width="22" height="22" icon="fa6-solid:square-root-variable"></iconify-icon></button>
 							<button>/</button>
 							<button>7</button>
 							<button>8</button>
@@ -70,10 +105,15 @@
 					<h4>History</h4>
 					<h4>Memory</h4>
 				</div>
-				<div class="stack_history">
-					There's no history yet
-				</div class="stack_memory">
-				<div>There's nothing saved in memory</div>
+				<div class="display">
+					<div class="stack_history">
+						There's no history yet
+					</div>
+					<div class="stack_memory">
+						There's nothing saved in memory
+					</div>
+				</div>
+				
 			</main>
 		</div>
 		<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>

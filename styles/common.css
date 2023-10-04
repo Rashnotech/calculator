@@ -13,6 +13,7 @@ body{
     display: flex;
     flex-direction: row;
     align-items: start;
+    position: relative;
 }
 .calculator .cal_modes .history {
     display: none;
@@ -40,6 +41,7 @@ body{
 }
 .stack {
     width: 30%;
+    overflow: hidden;
 }
 .stack > div h4 {
     font-size: 14px;
@@ -64,8 +66,98 @@ body{
     font-weight: 600;
     font-size: 18px;
 }
+.stack .display {
+    display: grid;
+    grid-template-columns: 1;
+    width: 100%;
+}
+.stack .stack_memory, .stack .stack_history {
+    font-size: 14px;
+    width: 100%;
+    height: 90vh;
+    color: #333;
+}
+.stack .stack_memory {
+    display: none;
+}
+.cal_modes .toggle {
+    z-index: 100;
+}
+.side_nav .gap {
+    width: 100%;
+    height: 50px;
+    padding: 1rem;
+}
+nav {
+    position: fixed;
+    background-color:#dddddd;
+    z-index: 1;
+    width: 280px;
+    font-size: 14px;
+    color: #333;
+    height: 100%;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    overflow-y: hidden;
+    top: 0;
+    display: none;
+}
+nav section ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    row-gap: 25px;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+nav > section {
+    height: 90%;
+    overflow: auto;
+    padding-left: 1rem;
+    padding-bottom: 2rem;
+}
 
+::-webkit-scrollbar {
+    width: 5px;
+    background-color: #ddd;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #888888;
+    border-radius: 10px;
+}
+
+nav section h4 {
+    margin-top: 1.5rem;
+    font-size: 14px;
+    color: #252525;
+    font-weight: bold;
+}
+nav > div:last-child {
+    border-top: 1px solid #CCC;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 1rem;
+    z-index: 1;
+    background-color: inherit;
+    cursor: pointer;
+}
+nav .icon {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 15px;
+}
+nav > div:last-child ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
 @media screen and (min-width: 300px) and (max-width: 600px) {
+    .side_nav {
+        display: none;
+    }
     .container {
         display: flex;
         flex-direction: column;
