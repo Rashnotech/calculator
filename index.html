@@ -9,7 +9,7 @@
 		<title>Calculator</title>
 	</head>
 	<body>
-		<nav class="side_nav">
+		<nav class="side_nav hide">
 			<div class="gap"></div>
 			<section class="menu">
 				<h4>Calculator</h4>
@@ -51,15 +51,15 @@
 					<h3>Standard</h3> 
 					<button><iconify-icon width="20" height="20" icon="heroicons:arrow-top-right-on-square-20-solid"></iconify-icon></button>
 					<div class="history">
-						<button><iconify-icon width="20" height="20" icon="ic:round-history"></iconify-icon></button>
+						<button class="list"><iconify-icon width="20" height="20" icon="ic:round-history"></iconify-icon></button>
 					</div>						
 				</div>
 				<div class="screen">
 					<div class="small_screen">
-						8
+						&nbsp;
 					</div>
 					<div class="main_screen">
-						8
+						0
 					</div>
 				</div>
 				<div>
@@ -99,6 +99,9 @@
 						</div>
 					</section>
 				</div>
+				<div class="m_stack hide">
+					<p>There's no element in the stack</p>
+				</div>
 			</main>
 			<main class="stack">
 				<div>
@@ -117,6 +120,8 @@
 			</main>
 		</div>
 		<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-		<script src="scripts/"></script>
+		<script src="scripts/toggle.js"></script>
+		<script type="module" src="scripts/app.js"></script>
+		scri
 	</body>
 </html>
