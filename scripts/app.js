@@ -9,7 +9,12 @@ class Calculator extends Operator {
     }
 
     screen (value) {
-        return this.display.textContent = value;
+        const Intformat = new Intl.NumberFormat('en-US');
+        if (value.length !== 16 && value.length > 3) {
+            return this.display.textContent = Intformat.format(value);
+        } else {
+            return;
+        }
     }
 }
 
