@@ -10,10 +10,9 @@ class Calculator extends Operator {
 
     screen (value) {
         const Intformat = new Intl.NumberFormat('en-US');
-        if (value.length !== 16 && value.length > 3) {
+        
+        if (value.length > 0) {
             return this.display.textContent = Intformat.format(value);
-        } else {
-            return;
         }
     }
 }

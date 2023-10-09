@@ -27,22 +27,54 @@ export class Keypad {
 }
 
 export class Operator extends Keypad {
-    add () {
-
+    constructor () {
+        super();
+        this.operator = {
+            '+': (a, b) => a + b, 
+            '-': (a, b) => a - b,
+            '/': (a , b) => a / b,
+            '*': (a, b) => a * b,
+            '%': (a, b) => a % b,
+            '=': '',
+            'C': ''
+        };
+        this.result = 0;
+        this.cache = 0;
     }
-    sub () {
 
+    dispatch (operand) {
+        switch (operand) {
+            case '+':
+                return this.signs('+');
+            case '-':
+                return this.signs('-');
+            case '/':
+                return this.signs('/');
+            case '*':
+                return this.signs('*');
+            case '%':
+                return this.signs('%');
+            case '=':
+                return this.equal();
+            case 'C':
+                return this.clear();
+        }
     }
-    div () {
 
+    signs (operand) {
+        if (operand.toString() in this.operator) {
+            this.result = this.KeyEntry.map(value => this.operator[operand](value, this.cache));
+        }
     }
-    mul () {
-
+    equal (operand) {
+        if (operand in this.operator) {
+            return this.result;
+        }
     }
-    mod () {
 
-    }
-    equal () {
-
+    clear () {
+        this.KeyEntry = [];
+        this.cache = 0;
+        this.result = 0;
     }
 }
