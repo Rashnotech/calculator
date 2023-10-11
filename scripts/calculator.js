@@ -9,7 +9,14 @@ export class Keypad {
         for (const iterator of keypad.children) {
             iterator.addEventListener('click', (event) => {
                 if (event.target) {
-                    this.numbers(parseInt(event.target.innerText));
+                    let target = event.target.innerText;
+                    if (!isNaN(Number(target))) {
+                        this.numbers(parseInt(target, 10));
+                    } else {
+                        if (target in this.operator) {
+                            this.dispatch(target)
+                        }
+                    }
                 }
             });
         }
@@ -19,8 +26,6 @@ export class Keypad {
         if (typeof value === 'number') {
             this.KeyEntry.push(value);
             this.screen(this.KeyEntry.join(''));
-        } else {
-            return this.KeyEntry;
         }
     }
 
@@ -33,7 +38,7 @@ export class Operator extends Keypad {
             '+': (a, b) => a + b, 
             '-': (a, b) => a - b,
             '/': (a , b) => a / b,
-            '*': (a, b) => a * b,
+            'x': (a, b) => a * b,
             '%': (a, b) => a % b,
             '=': '',
             'C': ''
@@ -62,8 +67,9 @@ export class Operator extends Keypad {
     }
 
     signs (operand) {
+        console.log(this.screen(this.KeyEntry.join('')));
         if (operand.toString() in this.operator) {
-            this.result = this.KeyEntry.map(value => this.operator[operand](value, this.cache));
+            this.KeyEntry.map(value => this.operator[operand](value, this.result));
         }
     }
     equal (operand) {
