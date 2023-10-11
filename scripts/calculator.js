@@ -44,7 +44,7 @@ export class Operator extends Keypad {
             'C': ''
         };
         this.result = 0;
-        this.cache = 0;
+        this.cache = [];
     }
 
     dispatch (operand) {
@@ -55,8 +55,8 @@ export class Operator extends Keypad {
                 return this.signs('-');
             case '/':
                 return this.signs('/');
-            case '*':
-                return this.signs('*');
+            case 'x':
+                return this.signs('x');
             case '%':
                 return this.signs('%');
             case '=':
@@ -67,7 +67,10 @@ export class Operator extends Keypad {
     }
 
     signs (operand) {
-        console.log(this.screen(this.KeyEntry.join('')));
+        /** screen working here */
+        this.cache.push(...this.KeyEntry, operand);
+        this.screen(this.cache);
+        this.KeyEntry = [];
         if (operand.toString() in this.operator) {
             this.KeyEntry.map(value => this.operator[operand](value, this.result));
         }
@@ -80,7 +83,8 @@ export class Operator extends Keypad {
 
     clear () {
         this.KeyEntry = [];
-        this.cache = 0;
+        this.screen(this.KeyEntry.join(''));
+        this.cache = [];
         this.result = 0;
     }
 }
