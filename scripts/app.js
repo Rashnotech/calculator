@@ -10,7 +10,8 @@ class Calculator extends Operator {
 
     screen (value) {
         const Intformat = new Intl.NumberFormat('en-US');
-        if (!(value instanceof Array) && value.length > 0 && this.result === 0) {
+        if (!(value instanceof Array) &&
+              value.length > 0 && this.result === 0) {
             return this.display.textContent = Intformat.format(value);
         }
         else if (value instanceof Array) return this.view.textContent = value.join(' ');

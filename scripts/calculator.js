@@ -1,7 +1,9 @@
 export class Keypad {
     constructor () {
         this.KeyEntry = [];
-        this.attachEventListener(); 
+        this.attachEventListener();
+        this.main = document.querySelector('.main_screen');
+        this.small = document.querySelector('.small_screen');
     }
 
     attachEventListener () {
@@ -25,7 +27,7 @@ export class Keypad {
     numbers (value) {
         if (typeof value === 'number') {
             this.KeyEntry.push(value);
-            this.screen(this.KeyEntry.join(''));
+            this.main.innerText = this.KeyEntry.join('');
         }
     }
 
@@ -41,7 +43,7 @@ export class Operator extends Keypad {
             'x': (a, b) => a * b,
             '%': (a, b) => a % b,
             '=': '',
-            'C': ''
+            'C': 'clear'
         };
         this.result = 0;
         this.cache = [];
@@ -62,18 +64,32 @@ export class Operator extends Keypad {
             case '=':
                 return this.equal();
             case 'C':
-                return this.clear();
+                return this.clear('C');
         }
     }
 
     signs (operand) {
-        /** screen working here */
-        this.cache.push(...this.KeyEntry, operand);
+        let temp = [], Num = '';
+
+        this.KeyEntry.forEach((value, index) => {
+            if (typeof value === 'number') {
+                Num += value;
+            }
+        });
+        this.cache.push(Number(Num), operand);
+        if (this.cache.length > 2) {
+            this.cache.forEach((value, index) => {
+                if (typeof(value) === 'number' && index !== this.cache.length - 1) {
+                    this.result = this.operator[this.cache[index + 1]](value, this.cache[index + 2]);
+                    if (!isNaN(this.result)) temp.push(this.result);
+                }
+                if (index === this.cache.length - 1) temp.push(this.cache.slice(-1)[0]);
+            });
+            this.cache = temp;
+            this.main.innerText = temp[0];
+        }
         this.screen(this.cache);
         this.KeyEntry = [];
-        if (operand.toString() in this.operator) {
-            this.KeyEntry.map(value => this.operator[operand](value, this.result));
-        }
     }
     equal (operand) {
         if (operand in this.operator) {
@@ -81,10 +97,11 @@ export class Operator extends Keypad {
         }
     }
 
-    clear () {
-        this.KeyEntry = [];
-        this.screen(this.KeyEntry.join(''));
-        this.cache = [];
-        this.result = 0;
+    clear (operand) {
+        if (operand in this.operator) {
+            this.KeyEntry = [];
+            this.main.innerText = 0;
+            this.small.innerHTML = '&nbsp;';
+        }
     }
 }
