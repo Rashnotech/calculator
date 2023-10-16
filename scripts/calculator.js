@@ -99,7 +99,7 @@ export class Operator extends Keypad {
     }
     equal (operand) {
         let temp = [];
-        if (operand in this.operator) {
+        if (operand in this.operator && this.cache.length > 0) {
             this.cache.push(...this.KeyEntry, operand);
             this.screen(this.cache);
             this.cache.forEach((value, index) => {
